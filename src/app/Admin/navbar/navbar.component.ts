@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../Services/login/login-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor() { }
+  role : any
+  constructor(private LoginService : LoginService) { }
 
   ngOnInit(): void {
+    if(this.LoginService.getRole()=="Admin"){
+      this.role = true;
+    }else {
+      this.role=false
+    }
   }
-  function HeaderController($scope, $location) 
-  { 
-      $scope.isActive = function (viewLocation) { 
-          return viewLocation === $location.path();
-      };
-  }
+  
 }

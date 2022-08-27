@@ -1,14 +1,14 @@
 <ul class="navbar-nav" ng-controller="HeaderController">
     <li class="nav-item">
-      <a class="nav-link text-white active bg-gradient-primary" [routerLink]="['/admin/home']">
+      <a class="nav-link text-white  " *ngIf="role" [routerLink]="['/admin/home']" routerLinkActive="active bg-gradient-primary">
         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
           <i class="material-icons opacity-10">dashboard</i>
         </div>
-        <span class="nav-link-text ms-1">Home</span>
+        <span class="nav-link-text ms-1" >Home</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white " [routerLink]="['/admin/users']">
+      <a class="nav-link text-white " *ngIf="role" [routerLink]="['/admin/users']" routerLinkActive="active bg-gradient-primary ">
         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
           <i class="material-icons opacity-10">table_view</i>
         </div>
@@ -16,7 +16,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white " [routerLink]="['/admin/projects']">
+      <a class="nav-link text-white " *ngIf="role" [routerLink]="['/admin/projects']" routerLinkActive="active bg-gradient-primary">
         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
           <i class="material-icons opacity-10">receipt_long</i>
         </div>
@@ -24,7 +24,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white " [routerLink]="['/admin/interviews']">
+      <a class="nav-link text-white " *ngIf="role" [routerLink]="['/admin/interviews']" routerLinkActive="active bg-gradient-primary">
         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
           <i class="material-icons opacity-10">view_in_ar</i>
         </div>
@@ -32,31 +32,28 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white " [routerLink]="['/admin/projects/postulate']">
+      <a class="nav-link text-white " *ngIf="role" [routerLink]="['/admin/projects/postulate']" routerLinkActive="active bg-gradient-primary">
         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
           <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
         </div>
         <span class="nav-link-text ms-1">Projects postulate</span>
       </a>
     </li>
-    
-    <li class="nav-item mt-4">
-      <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
-    </li>
     <li class="nav-item">
-      <a class="nav-link text-white " [routerLink]="['/admin/profil']">
+      <a class="nav-link text-white " *ngIf="!role" [routerLink]="['/admin/get']" routerLinkActive="active bg-gradient-primary">
         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-          <i class="material-icons opacity-10">person</i>
+          <i class="material-icons opacity-10">receipt_long</i>
         </div>
-        <span class="nav-link-text ms-1">Profile</span>
+        <span class="nav-link-text ms-1">Admin</span>
       </a>
     </li>
+    
     <li class="nav-item">
-      <a class="nav-link text-white " href="../pages/sign-in.html">
+      <a class="nav-link text-white " *ngIf="!role" [routerLink]="['/admin/add']" routerLinkActive="active bg-gradient-primary">
         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-          <i class="material-icons opacity-10">logout</i>
+          <i class="material-icons opacity-10">add</i>
         </div>
-        <span class="nav-link-text ms-1">Sign out</span>
+        <span class="nav-link-text ms-1">Add Admin</span>
       </a>
     </li>
    

@@ -1,0 +1,148 @@
+   <!--Main Navigation-->
+   <div class="body-inner">
+
+   
+    <!--/ Topbar end -->
+<!-- Header start -->
+<header id="header" class="header-one">
+  <div class="bg-white">
+    <div class="container">
+      <div class="logo-area">
+          <div class="row align-items-center">
+            <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
+                <a class="d-block" href="index.html">
+                  <img loading="lazy" src="../../../assets/img/logo-FinlogiK-b.gif" alt="Constra">
+                </a>
+            </div><!-- logo end -->
+  
+            <div class="col-lg-9 header-right">
+                <ul class="top-info-box">
+                  <li>
+                    <div class="info-box">
+                      <div class="info-box-content">
+                          <p class="info-box-title">Call Us</p>
+                          <p class="info-box-subtitle">(+9) 847-291-4353</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="info-box">
+                      <div class="info-box-content">
+                          <p class="info-box-title">Email Us</p>
+                          <p class="info-box-subtitle">office@Constra.com</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="last">
+                    <div class="info-box last">
+                      <div class="info-box-content">
+                          <p class="info-box-title">Global Certificate</p>
+                          <p class="info-box-subtitle">ISO 9001:2017</p>
+                          <i class="fa-solid fa-9"></i>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="header-get-a-quote">
+                    <a class="btn btn-primary" href="contact.html">Get A Quote</a>
+                  </li>
+                </ul><!-- Ul end -->
+            </div><!-- header right end -->
+          </div><!-- logo area end -->
+  
+      </div><!-- Row end -->
+    </div><!-- Container end -->
+  </div>
+
+  <div class="site-navigation">
+    
+        <div class="row">
+          <div class="col-lg-12">
+           
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown active">
+                      <a href="#" class="nav-link dropdown-toggle"  data-toggle="dropdown">Home</a>  
+                  </li>
+
+                  <li >
+                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About</a>
+                  
+                  </li>
+          
+                  <li class="nav-item dropdown">
+                      <a [routerLink]="['/user/home/project']" class="nav-link dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">Projects <i class="fa fa-angle-down"></i></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuLink">
+                        <li><a href="projects.html" class="dropdown-item">Projects All</a></li>
+                        <li><a href="projects-single.html" class="dropdown-item">Projects Single</a></li>
+                      </ul>
+                  </li>
+          
+                  <li class="nav-item dropdown">
+                      <a  class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="services.html">Services All</a></li>
+                        <li><a href="service-single.html">Services Single</a></li>
+                      </ul>
+                  </li>
+          
+                  <li class="nav-item"><a class="nav-link" [routerLink]="['/user/home/contact']">Contact</a></li>
+                  
+                  </ul>
+                 
+                    <li class="nav-item d-flex nav-item dropdown mt-3 logiin">
+                      <a [routerLink]="['/user/home/profil']" *ngIf="Active" class="nav-link btn btn-primary mr  " ><i class="fa-solid fa-user"></i></a>
+
+                      <a [routerLink]="['/user/home/profil']" *ngIf="Active"  class="nav-link btn btn-primary mr" ><i class="fa-solid fa-bell"></i></a>
+                      <a  *ngIf="Active"  class="nav-link btn btn-danger mr" (click)="logout()" ><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                    </li>
+
+                    <li class="nav-item d-flex nav-item dropdown mt-3 logiin">
+                      <a  *ngIf="!Active" [routerLink]="['/user/login']" class="nav-link btn btn-primary mr  " ><i class="fa-solid fa-arrow-right-to-arc"></i> Login</a>
+
+                      <a  *ngIf="!Active" [routerLink]="['/user/registre']"  class="nav-link btn btn-primary" >Registre</a>
+                    </li>
+                  
+                </div>
+              </div>
+            </nav>
+          </div>
+          <!--/ Col end -->
+        </div>
+        <!--/ Row end -->
+
+      
+
+       
+    </div>
+    <!--/ Container end -->
+
+ 
+  <!--/ Navigation end -->
+  
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<div class="banner-carousel-item images" >
+<div class="slider-content text-left">
+    <div class="container h-300">
+      <div class="row align-items-center h-300">
+          <div class="col-md-12 mt-10">
+            
+                <h3>Welcome</h3>
+           
+          </div>
+      </div>
+    </div>
+</div>
+</div>
+
+
+</div>

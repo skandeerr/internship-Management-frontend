@@ -3,52 +3,109 @@
     <div class="card-header pb-0 px-3">
         <div class="row">
             <div class="col-md-10">
-                <h6 class="mb-0">Billing Information</h6>
+                <h6 class="mb-0">Projects</h6>
             </div>
             <div class="col-md-2 text-right">
-                <button class="btn btn-primary">Ajouter</button>
+                <button class="btn btn-primary" (click)="OpenAddOrUpdate(0)"><i class="material-icons text-sm me-2">add</i>ADD</button>
             </div>
         </div>
      
     </div>
     <div class="card-body pt-4 p-3">
       <ul class="list-group">
-        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg" *ngFor="let proj of project ">
           <div class="d-flex flex-column">
-            <h6 class="mb-3 text-sm">Oliver Liam</h6>
-            <span class="mb-2 text-xs">Company Name: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
-            <span class="mb-2 text-xs">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">oliver@burrito.com</span></span>
-            <span class="text-xs">VAT Number: <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
+            <h6 class="mb-3 text-sm">{{proj.nom}}</h6>
+            <span class="mb-2 text-xs" >CODE: <span class="text-dark font-weight-bold ms-sm-2">{{proj.refe}}</span></span>
+            <span class="mb-2 text-xs">Description: <span class="text-dark ms-sm-2 font-weight-bold">{{proj.description}}</span></span>
+            <span class="mb-2 text-xs">Technologies: <span class="text-dark ms-sm-2 font-weight-bold">{{proj.technologies}}</span></span>
+            <span class="mb-2 text-xs">Internship duration: <span class="text-dark ms-sm-2 font-weight-bold">{{proj.periode}}</span></span>
+            <span class="mb-2 text-xs">Needed Interns: <span class="text-dark ms-sm-2 font-weight-bold">{{proj.numberInter}}</span></span>
+            <span class=" text-xs">Type: <span class="text-dark ms-sm-2 font-weight-bold">{{proj.type}}</span></span>
           </div>
           <div class="ms-auto text-end">
-            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i>Delete</a>
-            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i>Edit</a>
+            <a class="btn btn-link text-dark px-3 mb-0" (click)="OpenAddOrUpdate(proj.id)"><i class="material-icons text-sm me-2">edit</i>Edit</a>
+            <a class="btn btn-link text-danger text-gradient px-3 mb-0" (click)="OpenDeleteModel(proj.id)"><i class="material-icons text-sm me-2">delete</i>Delete</a>
+           
           </div>
         </li>
-        <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
-          <div class="d-flex flex-column">
-            <h6 class="mb-3 text-sm">Lucas Harper</h6>
-            <span class="mb-2 text-xs">Company Name: <span class="text-dark font-weight-bold ms-sm-2">Stone Tech Zone</span></span>
-            <span class="mb-2 text-xs">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">lucas@stone-tech.com</span></span>
-            <span class="text-xs">VAT Number: <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
-          </div>
-          <div class="ms-auto text-end">
-            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i>Delete</a>
-            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i>Edit</a>
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
-          <div class="d-flex flex-column">
-            <h6 class="mb-3 text-sm">Ethan James</h6>
-            <span class="mb-2 text-xs">Company Name: <span class="text-dark font-weight-bold ms-sm-2">Fiber Notion</span></span>
-            <span class="mb-2 text-xs">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">ethan@fiber.com</span></span>
-            <span class="text-xs">VAT Number: <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
-          </div>
-          <div class="ms-auto text-end">
-            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i>Delete</a>
-            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i>Edit</a>
-          </div>
-        </li>
+       
+        
       </ul>
     </div>
   </div>
+
+
+   <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ModelTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="mb-3">
+          <label class="form-label">Reference</label>
+          <input [(ngModel)]="addProject.refe"  type="text" class="form-control"   id="refe" >
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Nom du projet</label>
+          <input type="text" [(ngModel)]="addProject.nom"  id="age" class="form-control" >
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Description</label>
+          <input type="text" [(ngModel)]="addProject.description"  id="age" class="form-control" >
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Technologies</label>
+          <input type="text" [(ngModel)]="addProject.technologies"  id="age" class="form-control" >
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Internship duration</label>
+          <input type="number" [(ngModel)]="addProject.periode"  id="age" class="form-control" >
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Needed Interns</label>
+          <input type="number" [(ngModel)]="addProject.numberInter"  id="age" class="form-control" >
+        </div>
+        <div class="mb-3">
+          <label >Type</label>
+          <select class="form-select" [(ngModel)]="addProject.type"  id="genre" aria-label="Default select example">
+            <option value="stage d'été">Stage d'été</option>
+            <option value="pfe">PFE</option>
+          </select>
+        </div>
+      
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="CreateOrUpdate()" > Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModelDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Delete confirm Requird
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="delete()">Confirm Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
