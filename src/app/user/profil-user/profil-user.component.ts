@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthUserService } from '../services/auth-user.service';
 import { RegistreUser } from '../services/RegistreUser';
-
+import { UpdateProfil } from '../services/UpdateProfil';
+declare var window:any;
 @Component({
   selector: 'app-profil-user',
   templateUrl: './profil-user.component.html',
@@ -11,13 +12,14 @@ export class ProfilUserComponent implements OnInit {
   
   id : any
   User : any = [];
+  
   constructor(private authService : AuthUserService) { }
 
   ngOnInit(): void {
     
     this.id = this.authService.getId();
     this.getUserDeatils()
-   
+    console.log(this.id)
    
   }
   getUserDeatils(){
@@ -30,6 +32,16 @@ export class ProfilUserComponent implements OnInit {
         console.log(error);
       }
     
+    })
+  }
+
+  update(){
+    this.authService.UpdateProfil(this.User,this.id).subscribe({
+      next : (data)=>{
+        
+        window.location.reload();
+
+      }
     })
   }
 }

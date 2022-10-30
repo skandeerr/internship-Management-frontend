@@ -1,0 +1,9 @@
+
+
+<div *ngIf="length">
+    <div class="alert alert-primary alert-dismissible text-white" role="alert" *ngFor="let inter of interview; let i=index" >
+        <span class="text-sm">You have an interview {{AllInterview[i].date_entretien}}  for the project {{projects[i].nom}}  Please confirm the interview</span>
+        <button class="btn btn-outline-dark text" (click)="confirm(AllInterview[i].id)">Confirm</button>
+      </div>
+</div>
+

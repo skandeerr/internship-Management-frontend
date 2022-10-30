@@ -21,7 +21,7 @@ export class ProjectService {
     return this.httpClient.delete<Project[]>(`https://localhost:7056/Project/${projectid}`)
   }
   GetByIdProject(projectid : any){
-    return this.httpClient.get<Project[]>(`https://localhost:7056/Project/${projectid}`);
+    return this.httpClient.get<Project>(`https://localhost:7056/Project/${projectid}`);
   }
 
 

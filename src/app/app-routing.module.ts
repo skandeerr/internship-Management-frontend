@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddAdminComponent } from './Admin/add-admin/add-admin.component';
 import { DashbordComponent } from './Admin/dashbord/dashbord.component';
+import { DetailPostComponent } from './Admin/detail-post/detail-post.component';
 import { EntretienComponent } from './Admin/entretien/entretien.component';
 import { GetAllAdminComponent } from './Admin/get-all-admin/get-all-admin.component';
 import { HomeComponent } from './Admin/home/home.component';
@@ -11,13 +12,16 @@ import { ProjectsComponent } from './Admin/projects/projects.component';
 import { ProjetPostulerComponent } from './Admin/projet-postuler/projet-postuler.component';
 import { UsersComponent } from './Admin/users/users.component';
 import { AuthGuard } from './token/auth.guard';
+import { AboutComponent } from './user/about/about.component';
 import { ContactComponent } from './user/contact/contact.component';
 import { DetailsProjectComponent } from './user/details-project/details-project.component';
 import { HomeUserComponent } from './user/home-user/home-user.component';
 import { LoginUserComponent } from './user/login-user/login-user.component';
+import { NotificationUserComponent } from './user/notification-user/notification-user.component';
 import { ProfilUserComponent } from './user/profil-user/profil-user.component';
 import { ProjectUserComponent } from './user/project-user/project-user.component';
 import { RegistreUserComponent } from './user/registre-user/registre-user.component';
+import { ServicePageComponent } from './user/service-page/service-page.component';
 
 const routes: Routes = [
   {
@@ -32,6 +36,10 @@ const routes: Routes = [
   {
     
     path: 'add', component: AddAdminComponent
+},
+{
+    
+  path: 'post/detail/:id', component: DetailPostComponent
 },
   {
     
@@ -49,6 +57,7 @@ const routes: Routes = [
     
   path: 'interviews', component: EntretienComponent,canActivate : [AuthGuard]
 },
+
 {
     
   path: 'home', component: HomeComponent,canActivate : [AuthGuard]
@@ -81,7 +90,19 @@ const routes: Routes = [
 },
 {
     
+  path: 'service', component: ServicePageComponent,
+},
+{
+    
+  path: 'about', component: AboutComponent,
+},
+{
+    
   path: 'detail/:id', component: DetailsProjectComponent,
+}, 
+{
+    
+  path: 'notif', component: NotificationUserComponent,
 }
 
 

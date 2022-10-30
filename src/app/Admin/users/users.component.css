@@ -2,3 +2,10 @@
     color:red;
     background-size: 2em !important;
 }
+.mr{
+    margin-left: 13px;
+    font-size: 1.5em;
+}
+.gre{
+    color: green;
+}

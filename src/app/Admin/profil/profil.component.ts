@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../Services/login/login-service.service';
 import { ProfilService } from '../Services/profil/profil.service';
-
+declare var window:any;
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.component.html',
@@ -25,6 +25,15 @@ export class ProfilComponent implements OnInit {
       error:(error)=>{
         console.log(error);
         
+      }
+    })
+  }
+
+  update(){
+    this.profilService.updateProfil(this.Admin,this.id).subscribe({
+      next : (data)=>{
+        window.location.reload();
+
       }
     })
   }

@@ -1,9 +1,9 @@
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl mt-3" id="navbarBlur" data-scroll="true">
  
     <div class="container-fluid">
-      
+      <h4>Dashbord</h4>
       <form class="d-flex text-right">
-        <button class="btn btn-outline-primary mr" *ngIf="role" [routerLink]="['/admin/profil']" type="submit"><i class="material-icons opacity-10">user</i> Profile</button>
+        <button class="btn btn-outline-primary mr" *ngIf="role" [routerLink]="['/admin/profil']" type="submit">Profile</button>
         
         <button class="btn btn-outline-danger" (click)="logout()" type="submit"><i class="material-icons opacity-10">logout</i> Sign out</button>
       </form>

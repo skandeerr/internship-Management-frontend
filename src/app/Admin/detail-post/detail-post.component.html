@@ -1,0 +1,169 @@
+
+
+<section id="about" class="pt-100">
+  <div class="about-section">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-6 col-lg-6" *ngFor="let p of projects">
+                  <div class="about-img-wrapper">
+                      <div class="about-img position-relative d-inline-block wow fadeInLeft" data-wow-delay=".3s">
+                          
+                          <div class="about-experience ">
+                              <span><h3 class="section-title">{{p.nom}}</h3></span>
+                              <p>{{p.description}}</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="ts-service-box">
+                          <span class="ts-service-icon">
+                            <i class="fas fa-trophy"></i>
+                          </span>
+                          <div class="ts-service-box-content">
+                            <h3 class="service-box-title">{{p.technologies}}</h3>
+                          </div>
+                      </div><!-- Service 1 end -->
+                    </div><!-- col end -->
+      
+                    <div class="col-md-6">
+                      <div class="ts-service-box">
+                          <span class="ts-service-icon">
+                            <i class="fas fa-sliders-h"></i>
+                          </span>
+                          <div class="ts-service-box-content">
+                            <h3 class="service-box-title">{{p.type}}</h3>
+                          </div>
+                      </div><!-- Service 2 end -->
+                    </div><!-- col end -->
+                </div><!-- Content row 1 end -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="ts-service-box">
+                        <span class="ts-service-icon">
+                          <i class="fas fa-thumbs-up"></i>
+                        </span>
+                        <div class="ts-service-box-content">
+                          <h3 class="service-box-title">Numbre of Inter : {{p.numberInter}}</h3>
+                        </div>
+                    </div><!-- Service 1 end -->
+                  </div><!-- col end -->
+    
+                  <div class="col-md-6">
+                    <div class="ts-service-box">
+                        <span class="ts-service-icon">
+                          <i class="fas fa-users"></i>
+                        </span>
+                        <div class="ts-service-box-content">
+                          <h3 class="service-box-title">{{p.periode}} Month</h3>
+                        </div>
+                    </div><!-- Service 2 end -->
+                  </div><!-- col end -->
+              </div><!-- Content row 1 end -->
+              </div>
+              
+              <div class="col-xl-6 col-lg-6" *ngFor="let u of users">
+                  <div class="about-content-wrapper">
+                      <div class="">
+                          <h3 class="wow fadeInUp section-title" data-wow-delay=".2s">{{u.fullName}}</h3>
+                          <p class="mb-40 wow fadeInRight" data-wow-delay=".4s">{{u.ecole}} {{u.niveau_Specialite}}</p>
+                      </div>
+                      <div class="about-content" *ngFor="let u of users">
+                          <p class="mb-45 wow fadeInUp para" data-wow-delay=".6s">{{Post.description}}</p>
+                          <div class="counter-up wow fadeInUp" data-wow-delay=".5s">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="counter ">
+                                  
+                                  <h5>CV : <p >{{Post.cv}}</p></h5>  
+                                  
+                              </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="counter">
+                                  
+                                  <h5>Contact :<p>{{u.email}}  <br> {{u.phoneNumber}}</p></h5>  
+                                  
+                              </div>
+                              </div>
+                            </div>
+                             
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="counter">
+                                    <h5>Lien Github</h5>
+                                    <a>{{u.lienGithub}}</a>
+                                </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="counter">
+                                    <h5>Lien Linkedin</h5>
+                                    <a>{{u.lienLinkedln}}</a>
+                                </div>
+                                </div>
+                              </div>
+                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<div class="d-flex justify-content-end mt-3">
+  <div class="row ">
+    <div class="col-md-6 ">
+      <button class="btn btn-primary" (click)="OpenModal()">Interview</button>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-danger" (click)="OpenDeleteModel()">Refuse</button>
+    
+  </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="ModelDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        you are sure to refuse this candidate 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="delete()">Refuse</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="mb-3">
+          <label class="form-label">Date of Interview</label>
+          <input [(ngModel)]="Interview.date_entretien"  type="datetime-local" class="form-control"    >
+        </div>
+        
+      
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="PostInter()" > Save</button>
+      </div>
+    </div>
+  </div>
+</div>

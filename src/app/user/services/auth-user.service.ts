@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginUser } from './LoginUser';
 import { RegistreUser } from './RegistreUser';
+import { UpdateProfil } from './UpdateProfil';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,9 @@ export class AuthUserService {
 
   registre(user : RegistreUser){
     return this.httpClient.post<RegistreUser>("https://localhost:7056/user/registre",user)
+  }
+  UpdateProfil(user : UpdateProfil, id : any){
+    return this.httpClient.put<UpdateProfil>(`https://localhost:7056/user/${id}`,user)
   }
   login(loginUser : LoginUser){
     return this.httpClient.post<LoginUser>("https://localhost:7056/user/login",loginUser)

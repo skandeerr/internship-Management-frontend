@@ -1,1 +1,10 @@
-<p>home works!</p>
+
+
+
+<div >
+    <div class="alert alert-primary alert-dismissible text-white" role="alert" *ngFor="let u of users; let i=index" >
+        <span class="text-sm">The candidate {{u.fullName}} confirmed his interview ({{AllInterview[i].date_entretien}}) for the project {{projects[i].nom}}</span>
+        <span class="text-sm mr"> <a> Detail</a></span>
+      </div>
+</div>
+

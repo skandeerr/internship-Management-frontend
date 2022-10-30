@@ -21,7 +21,7 @@
                     <div class="info-box">
                       <div class="info-box-content">
                           <p class="info-box-title">Call Us</p>
-                          <p class="info-box-subtitle">(+9) 847-291-4353</p>
+                          <p class="info-box-subtitle">+216 74259872</p>
                       </div>
                     </div>
                   </li>
@@ -29,21 +29,22 @@
                     <div class="info-box">
                       <div class="info-box-content">
                           <p class="info-box-title">Email Us</p>
-                          <p class="info-box-subtitle">office@Constra.com</p>
+                          <p class="info-box-subtitle">info@finlogik.com</p>
                       </div>
                     </div>
                   </li>
                   <li class="last">
                     <div class="info-box last">
                       <div class="info-box-content">
-                          <p class="info-box-title">Global Certificate</p>
-                          <p class="info-box-subtitle">ISO 9001:2017</p>
-                          <i class="fa-solid fa-9"></i>
+                          <p class="info-box-title">Adresse</p>
+                          <p class="info-box-subtitle">Route de Teniour km 2.5
+                            3000 Sfax</p>
+                          
                       </div>
                     </div>
                   </li>
                   <li class="header-get-a-quote">
-                    <a class="btn btn-primary" href="contact.html">Get A Quote</a>
+                    <a class="btn btn-primary" [routerLink]="['/user/home/contact']">Contact</a>
                   </li>
                 </ul><!-- Ul end -->
             </div><!-- header right end -->
@@ -68,28 +69,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown active">
-                      <a href="#" class="nav-link dropdown-toggle"  data-toggle="dropdown">Home</a>  
+                      <a [routerLink]="['/user/home/about']" class="nav-link dropdown-toggle"  data-toggle="dropdown">Home</a>  
                   </li>
 
-                  <li >
-                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About</a>
-                  
+                 
+          
+                  <li class="nav-item dropdown">
+                      
+                      <a [routerLink]="['/user/home/service']" class="nav-link dropdown-toggle" data-toggle="dropdown">Services </a>
                   </li>
           
                   <li class="nav-item dropdown">
-                      <a [routerLink]="['/user/home/project']" class="nav-link dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">Projects <i class="fa fa-angle-down"></i></a>
-                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuLink">
-                        <li><a href="projects.html" class="dropdown-item">Projects All</a></li>
-                        <li><a href="projects-single.html" class="dropdown-item">Projects Single</a></li>
-                      </ul>
-                  </li>
-          
-                  <li class="nav-item dropdown">
-                      <a  class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="services.html">Services All</a></li>
-                        <li><a href="service-single.html">Services Single</a></li>
-                      </ul>
+                    <a [routerLink]="['/user/home/project']" class="nav-link dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">Projects </a>
+                     
                   </li>
           
                   <li class="nav-item"><a class="nav-link" [routerLink]="['/user/home/contact']">Contact</a></li>
@@ -99,7 +91,7 @@
                     <li class="nav-item d-flex nav-item dropdown mt-3 logiin">
                       <a [routerLink]="['/user/home/profil']" *ngIf="Active" class="nav-link btn btn-primary mr  " ><i class="fa-solid fa-user"></i></a>
 
-                      <a [routerLink]="['/user/home/profil']" *ngIf="Active"  class="nav-link btn btn-primary mr" ><i class="fa-solid fa-bell"></i></a>
+                      <a [routerLink]="['/user/home/notif']" *ngIf="Active"  class="nav-link btn btn-primary mr" ><i class="fa-solid fa-bell"></i></a>
                       <a  *ngIf="Active"  class="nav-link btn btn-danger mr" (click)="logout()" ><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </li>
 

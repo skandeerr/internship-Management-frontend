@@ -26,6 +26,10 @@ import { DetailsProjectComponent } from './user/details-project/details-project.
 import { ProfilUserComponent } from './user/profil-user/profil-user.component';
 import { GetAllAdminComponent } from './Admin/get-all-admin/get-all-admin.component';
 import { AddAdminComponent } from './Admin/add-admin/add-admin.component';
+import { DetailPostComponent } from './Admin/detail-post/detail-post.component';
+import { NotificationUserComponent } from './user/notification-user/notification-user.component';
+import { AboutComponent } from './user/about/about.component';
+import { ServicePageComponent } from './user/service-page/service-page.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +56,10 @@ import { AddAdminComponent } from './Admin/add-admin/add-admin.component';
        
         GetAllAdminComponent,
                 AddAdminComponent,
+                DetailPostComponent,
+                NotificationUserComponent,
+                AboutComponent,
+                ServicePageComponent,
   ],
   imports: [
     BrowserModule,
